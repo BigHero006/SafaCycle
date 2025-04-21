@@ -1,0 +1,130 @@
+import React, { useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions, FlatList } from 'react-native';
+
+const { width } = Dimensions.get('window');
+
+const exampleArticles = [
+  { id: '1', title: 'Waste Management Tips', description: 'Learn how to manage your waste effectively.' },
+  { id: '2', title: 'Recycling Benefits', description: 'Discover the benefits of recycling.' },
+  { id: '3', title: 'Community Clean-up', description: 'Join local clean-up events in your area.' },
+  { id: '4', title: 'Reducing Plastic Use', description: 'Tips to reduce plastic consumption.' },
+  { id: '5', title: 'Composting Basics', description: 'How to start composting at home.' },
+  { id: '6', title: 'Energy Conservation', description: 'Save energy with simple habits.' },
+  { id: '7', title: 'Sustainable Living', description: 'Adopt sustainable lifestyle choices.' },
+  { id: '8', title: 'Water Conservation', description: 'Ways to conserve water daily.' },
+  { id: '9', title: 'Eco-friendly Products', description: 'Choose products that are good for the environment.' },
+  { id: '10', title: 'Climate Change Awareness', description: 'Understand the impact of climate change.' },
+];
+
+const ITEM_HEIGHT = 150; // Set a fixed height for each item
+
+const Blogs: React.FC<{ navigation: any }> = ({ navigation }) => {
+  const scrollY = useRef(new Animated.Value(0)).current;
+
+  const renderArticle = ({ item }: { item: typeof exampleArticles[0] }) => (
+    <View style={styles.articleCard}>
+      <View style={styles.articleImagePlaceholder}>
+        <Text style={styles.imageText}>Image</Text>
+      </View>
+      <Text style={styles.articleTitle}>{item.title}</Text>
+      <Text style={styles.articleDescription}>{item.description}</Text>
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.headerText}>Recent blog posts</Text>
+
+      <Animated.FlatList
+        data={exampleArticles}
+        keyExtractor={(item) => item.id}
+        renderItem={renderArticle}
+        showsVerticalScrollIndicator={false}
+        snapToInterval={ITEM_HEIGHT + 20} // Adjust for vertical snapping
+        decelerationRate="fast"
+        contentContainerStyle={styles.flatListContent}
+        ItemSeparatorComponent={() => <View style={{ height: 20 }} />} // Adjust for vertical spacing
+      />
+
+      {/* Bottom Navigation Bar */}
+      <View style={styles.bottomNavBar}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+          <Text style={styles.iconText}>🏠</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>📷</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>📍</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>☰</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#4e54c8',
+    paddingTop: 50,
+    paddingHorizontal: 20,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 20,
+  },
+  flatListContent: {
+    paddingBottom: 20,
+  },
+  articleCard: {
+    backgroundColor: '#6a11cb',
+    borderRadius: 15,
+    padding: 15,
+    height: ITEM_HEIGHT, // Set height for vertical layout
+  },
+  articleImagePlaceholder: {
+    height: 100,
+    backgroundColor: '#4e54c8',
+    borderRadius: 10,
+    marginBottom: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+ 
+  imageText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  articleTitle: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  articleDescription: {
+    color: '#ddd',
+    fontSize: 14,
+  },
+  bottomNavBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#6a11cb',
+    paddingVertical: 15,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  navButton: {
+    alignItems: 'center',
+  },
+  iconText: {
+    color: '#fff',
+    fontSize: 18,
+  },
+});
+
+export default Blogs;
