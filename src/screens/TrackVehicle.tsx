@@ -1,10 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-const TrackVehicle: React.FC = () => {
-  const navigation = useNavigation();
-
+const TrackVehicle: React.FC<{ navigation: any }> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Blank screen content */}
@@ -17,7 +14,7 @@ const TrackVehicle: React.FC = () => {
         <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
