@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -18,10 +18,7 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   }, [authName, authEmail]);
 
   const onSave = () => {
-    // Update global name in AuthContext
     setAuthName(name);
-
-    // For now, just alert the updated info
     Alert.alert(
       'Profile Saved',
       `Name: ${name}\nEmail: ${email}\nPassword: ${password}\nLocation: ${location}\nPhone: ${countryCode} ${phoneNumber}`
@@ -30,14 +27,12 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Profile Picture */}
       <View style={styles.imageContainer}>
         <View style={styles.profileImage}>
           <Text style={styles.placeholderText}>Profile Image</Text>
         </View>
       </View>
 
-      {/* Name */}
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Name</Text>
         <TextInput
@@ -49,7 +44,6 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         />
       </View>
 
-      {/* Email */}
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -63,7 +57,6 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         />
       </View>
 
-      {/* Password */}
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Password</Text>
         <TextInput
@@ -76,7 +69,6 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         />
       </View>
 
-      {/* Location */}
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Location</Text>
         <TextInput
@@ -88,7 +80,6 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         />
       </View>
 
-      {/* Phone Number with Country Code */}
       <View style={styles.phoneContainer}>
         <Text style={styles.label}>Phone Number</Text>
         <View style={styles.phoneInputRow}>
@@ -112,30 +103,24 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         </View>
       </View>
 
-      {/* Save Button */}
       <TouchableOpacity style={styles.saveButton} onPress={onSave}>
         <Text style={styles.saveButtonText}>Save</Text>
       </TouchableOpacity>
 
-      {/* Bottom Navigation Bar */}
-            <View style={styles.bottomNavBar}>
-              <TouchableOpacity onPress={() => navigation.navigate('HomeS')} style={styles.navButton}>
-                {/* Placeholder for Home Icon */}
-                <Text style={styles.iconText}>🏠</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
-                {/* Placeholder for Scan Icon */}
-                <Text style={styles.iconText}>📷</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
-                {/* Placeholder for Location Icon */}
-                <Text style={styles.iconText}>📍</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
-                {/* Placeholder for Menu Icon */}
-                <Text style={styles.iconText}>☰</Text>
-              </TouchableOpacity>
-            </View>
+      <View style={styles.bottomNavBar}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+          <Text style={styles.iconText}>🏠</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>📷</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>📍</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
+          <Text style={styles.iconText}>☰</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -223,6 +208,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   navButton: {
     alignItems: 'center',
@@ -234,4 +223,3 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileScreen;
-

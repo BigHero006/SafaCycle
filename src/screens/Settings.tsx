@@ -237,7 +237,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    marginTop: 20,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   navButton: {
     alignItems: 'center',

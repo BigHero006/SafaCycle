@@ -9,11 +9,15 @@ import SignupScreen from '../../src/screens/SignupScreen';
 import Home from '../../src/screens/HomeScreen';
 import MenuScreen from '../../src/screens/MenuScreen';
 import ProfileScreen from '../../src/screens/ProfileScreen';
-import Settings  from '../../src/screens/Settings'
+import Settings  from '../../src/screens/Settings';
 import AboutUs from '../../src/screens/AboutUs';
+import WasteCollectionCalendar from '../../src/screens/WasteCollectionCalendar';
+import ScannedWastes from '../../src/screens/ScannedWastes';
+import ScanScreen from '../../src/screens/ScanScreen';
 import NotificationAndAlert from '../../src/screens/NotificationScreen';
+import TrackVehicle from '../../src/screens/TrackVehicle';
 import ReportProblem from '../../src/screens/ReportProblemScreen';
-import Blogs from '@/src/screens/BlogScreen';
+import Blogs from '../../src/screens/BlogScreen';
 import appConfig from '../../app.json';
 import { AuthProvider } from '../../src/context/AuthContext';
 
@@ -32,9 +36,13 @@ const App = () => {
           <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
           <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="AboutUs" component={AboutUs} />
+          <Stack.Screen name="WasteCollectionCalendar" component={WasteCollectionCalendar} />
+          <Stack.Screen name="ScanScreen" component={ScanScreen} />
+          <Stack.Screen name="ScannedWastes" component={ScannedWastes} />
           <Stack.Screen name="Blogs" component={Blogs} />
           <Stack.Screen name="NotificationAndAlert" component={NotificationAndAlert} />
           <Stack.Screen name="ReportProblem" component={ReportProblem} />
+          <Stack.Screen name="TrackVehicle" component={TrackVehicle} />
         </Stack.Navigator>
       </>
     </AuthProvider>

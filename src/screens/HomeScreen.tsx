@@ -36,34 +36,33 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* App Name */}
-      <Text style={styles.appName}>Safa Cycle</Text>
-
-      {/* Welcome Message */}
-      <Text style={styles.welcomeMessage}>Welcome, {name || user}!</Text>
-      <Text style={styles.subtitle}>Let's turn your trash into some cash</Text>
-
-      {/* Notification and Profile */}
-      <View style={styles.topIconsContainer}>
-        <TouchableOpacity
-          style={styles.notificationButton}
-          onPress={() => navigation.navigate('NotificationAndAlert')}
-        >
-          {/* Placeholder for Notification Icon */}
-          <View style={styles.iconPlaceholder}>
-            <Text style={styles.iconText}>🔔</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => navigation.navigate('ProfileScreen')}
-        >
-          {/* Placeholder for User Profile Picture */}
-          <View style={styles.profilePicturePlaceholder}>
-            <Text style={styles.iconText}>Profile Pic</Text>
-          </View>
-        </TouchableOpacity>
+      {/* Box containing texts and icons */}
+      <View style={styles.headerBox}>
+        <View style={styles.textsContainer}>
+          <Text style={styles.appName}>Safa Cycle</Text>
+          <Text style={styles.welcomeMessage}>Welcome, {name || user}!</Text>
+          <Text style={styles.subtitle}>Let's turn your trash into some cash</Text>
+        </View>
+        <View style={styles.iconsContainer}>
+          <TouchableOpacity
+            style={styles.notificationButton}
+            onPress={() => navigation.navigate('NotificationAndAlert')}
+          >
+            {/* Notification Icon above profile picture */}
+            <View style={styles.notificationIcon}>
+              <Text style={styles.iconText}>🔔</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.profileButton}
+            onPress={() => navigation.navigate('ProfileScreen')}
+          >
+            {/* Profile Picture */}
+            <View style={styles.profilePicturePlaceholder}>
+              <Text style={styles.iconText}>Profile Pic</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Reward Points Section */}
@@ -82,7 +81,7 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => navigation.navigate('TrashCalendar')}
+          onPress={() => navigation.navigate('WasteCollectionCalendar')}
         >
           {/* Placeholder for TrashCalendar Icon */}
           <View style={styles.buttonIconPlaceholder}>
@@ -93,7 +92,7 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => navigation.navigate('VehicleTrack')}
+          onPress={() => navigation.navigate('TrackVehicle')}
         >
           {/* Placeholder for VehicleTrack Icon */}
           <View style={styles.buttonIconPlaceholder}>
@@ -111,6 +110,17 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
             <Text style={styles.iconText}>💰</Text>
           </View>
           <Text style={styles.buttonText}>Exchange Points</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* News Report Title and See All Button */}
+      <View style={styles.newsHeader}>
+        <Text style={styles.newsHeaderText}>News Report</Text>
+        <TouchableOpacity
+          style={styles.blogButton}
+          onPress={() => navigation.navigate('Blogs')}
+        >
+          <Text style={styles.blogButtonText}>See All</Text>
         </TouchableOpacity>
       </View>
 
@@ -159,45 +169,53 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 20,
   },
+  headerBox: {
+    flexDirection: 'row',
+    backgroundColor: '#6a11cb',
+    borderRadius: 15,
+    padding: 15,
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  textsContainer: {
+    flex: 1,
+  },
   appName: {
-    fontSize: 32,
+    fontSize: 30, // decreased by 2 from 32
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   welcomeMessage: {
-    fontSize: 24,
+    fontSize: 22, // decreased by 2 from 24
     color: '#fff',
     fontWeight: '600',
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14, // decreased by 2 from 16
     color: '#ddd',
-    marginBottom: 20,
   },
-  topIconsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+  iconsContainer: {
+    alignItems: 'center',
+    marginLeft: 15,
   },
   notificationButton: {
-    padding: 10,
+    marginBottom: 10,
   },
-  profileButton: {
-    padding: 10,
-  },
-  iconPlaceholder: {
+  notificationIcon: {
     width: 40,
     height: 40,
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#4e54c8',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  profileButton: {},
   profilePicturePlaceholder: {
     width: 60,
     height: 60,
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#4e54c8',
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
@@ -248,6 +266,27 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
+  newsHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  newsHeaderText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  blogButton: {
+    backgroundColor: '#6a11cb',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+  },
+  blogButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
   newsContainer: {
     flexGrow: 0,
     marginBottom: 20,
@@ -278,6 +317,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   bottomNavBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#6a11cb',

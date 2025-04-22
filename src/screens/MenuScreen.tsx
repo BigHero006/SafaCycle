@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -73,24 +73,24 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       </View>
 
       {/* Bottom Navigation Bar */}
-     <View style={styles.bottomNavBar}>
-                  <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
-                    {/* Placeholder for Home Icon */}
-                    <Text style={styles.iconText}>🏠</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
-                    {/* Placeholder for Scan Icon */}
-                    <Text style={styles.iconText}>📷</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
-                    {/* Placeholder for Location Icon */}
-                    <Text style={styles.iconText}>📍</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
-                    {/* Placeholder for Menu Icon */}
-                    <Text style={styles.iconText}>☰</Text>
-                  </TouchableOpacity>
-                  </View>
+      <View style={styles.bottomNavBar}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+          {/* Placeholder for Home Icon */}
+          <Text style={styles.iconText}>🏠</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
+          {/* Placeholder for Scan Icon */}
+          <Text style={styles.iconText}>📷</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+          {/* Placeholder for Location Icon */}
+          <Text style={styles.iconText}>📍</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
+          {/* Placeholder for Menu Icon */}
+          <Text style={styles.iconText}>☰</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -102,18 +102,12 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 20,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
   box: {
     backgroundColor: '#6a11cb',
     borderRadius: 20,
     padding: 15,
     alignItems: 'center',
+    flex: 1,
   },
   profilePicturePlaceholder: {
     width: 80,
@@ -165,7 +159,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    marginTop: 20,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   navButton: {
     alignItems: 'center',
