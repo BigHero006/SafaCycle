@@ -1,53 +1,65 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground } from 'react-native';
+
+const backgroundImage = require('../../images/Backgorund.jpg');
 
 const AboutUs: React.FC<{ navigation: any }> = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.box}>
-        <Image
-          source={require('../../images/logo.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.description}>
-            At Safa Cycle, we’re revolutionizing waste management with smart, sustainable solutions.
-          </Text>
-          <Text style={styles.description}>
-            Our mission is to make waste disposal more efficient and eco-friendly by using cutting-edge technology like IoT and data analytics. With real-time tracking and personalized recommendations, we aim to optimize waste collection, reduce waste production, and encourage recycling.
-          </Text>
-          <Text style={styles.description}>
-            Join us in building smarter, cleaner communities for a greener tomorrow!
-          </Text>
+    <ImageBackground source={backgroundImage} style={styles.container}>
+      <View style={styles.overlay} />
+      <View style={styles.content}>
+        <View style={styles.box}>
+          <Image
+            source={require('../../images/logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.description}>
+              At Safa Cycle, we’re revolutionizing waste management with smart, sustainable solutions.
+            </Text>
+            <Text style={styles.description}>
+              Our mission is to make waste disposal more efficient and eco-friendly by using cutting-edge technology like IoT and data analytics. With real-time tracking and personalized recommendations, we aim to optimize waste collection, reduce waste production, and encourage recycling.
+            </Text>
+            <Text style={styles.description}>
+              Join us in building smarter, cleaner communities for a greener tomorrow!
+            </Text>
+          </View>
+        </View>
+
+        {/* Bottom Navigation Bar */}
+        <View style={styles.bottomNavBar}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+            <Text style={styles.iconText}>🏠</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
+            <Text style={styles.iconText}>📷</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+            <Text style={styles.iconText}>📍</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
+            <Text style={styles.iconText}>☰</Text>
+          </TouchableOpacity>
         </View>
       </View>
-
-      {/* Bottom Navigation Bar */}
-      <View style={styles.bottomNavBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
-          <Text style={styles.iconText}>🏠</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
-          <Text style={styles.iconText}>📷</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
-          <Text style={styles.iconText}>📍</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
-          <Text style={styles.iconText}>☰</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
     justifyContent: 'space-between', // Ensures the bottom nav bar stays at the bottom
     paddingHorizontal: 20,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.7)', // 30% fill overlay
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'space-between',
   },
   box: {
     backgroundColor: '#ffffff', // Background color for the box

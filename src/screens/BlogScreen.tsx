@@ -68,28 +68,28 @@ const Blogs: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#4DCB9B',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#ff',
     marginBottom: 20,
   },
   flatListContent: {
     paddingBottom: 20,
   },
   articleCard: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     borderRadius: 15,
     padding: 15,
     height: ITEM_HEIGHT, // Set height for vertical layout
   },
   articleImagePlaceholder: {
     height: 100,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#4e54c9',
     borderRadius: 10,
     marginBottom: 10,
     justifyContent: 'center',
@@ -101,19 +101,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   articleTitle: {
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 5,
   },
   articleDescription: {
-    color: '#ddd',
+    color: '#000',
     fontSize: 14,
   },
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

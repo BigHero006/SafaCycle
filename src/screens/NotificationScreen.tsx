@@ -76,7 +76,7 @@ const NotificationAndAlert: React.FC<{ navigation: any }> = ({ navigation }) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#FFF',
   },
   listContent: {
     padding: 20,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   notificationBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   message: {
     flex: 1,
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
   },
   date: {
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

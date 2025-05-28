@@ -59,7 +59,7 @@ const ScanScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#D9D9D9',
     paddingTop: 50,
     paddingHorizontal: 20,
     justifyContent: 'space-between',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

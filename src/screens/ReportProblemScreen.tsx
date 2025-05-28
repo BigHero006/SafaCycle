@@ -61,32 +61,32 @@ const ReportProblem: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#ABE5DA',
   },
   scrollContent: {
     padding: 20,
     paddingBottom: 100, // to avoid bottom nav bar overlap
   },
   box: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     borderRadius: 15,
     padding: 20,
     marginBottom: 20,
   },
   label: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     marginBottom: 10,
     fontWeight: '600',
   },
   dropdown: {
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#A28B55',
     borderRadius: 10,
     padding: 12,
     marginBottom: 10,
   },
   dropdownText: {
-    color: '#fff',
+    color: '#',
     fontSize: 16,
   },
   dropdownOptions: {
@@ -104,9 +104,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textInput: {
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#D9D9D9',
     borderRadius: 10,
-    color: '#fff',
+    color: '#000',
     padding: 10,
     textAlignVertical: 'top',
     marginBottom: 20,
@@ -130,20 +130,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   submitButton: {
-    backgroundColor: '#fff',
+    backgroundColor: '#5B913B',
     paddingVertical: 15,
     borderRadius: 15,
     alignItems: 'center',
   },
   submitButtonText: {
-    color: '#6a11cb',
+    color: '#FFF',
     fontSize: 18,
     fontWeight: '700',
   },
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

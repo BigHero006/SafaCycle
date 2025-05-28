@@ -165,13 +165,13 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#FFF',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
   headerBox: {
     flexDirection: 'row',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#4DCB9B',
     borderRadius: 15,
     padding: 15,
     marginBottom: 20,
@@ -184,17 +184,17 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 30, // decreased by 2 from 32
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
     marginBottom: 5,
   },
   welcomeMessage: {
     fontSize: 22, // decreased by 2 from 24
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
   },
   subtitle: {
     fontSize: 14, // decreased by 2 from 16
-    color: '#ddd',
+    color: '#000',
   },
   iconsContainer: {
     alignItems: 'center',
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   notificationIcon: {
     width: 40,
     height: 40,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#fff',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -215,19 +215,19 @@ const styles = StyleSheet.create({
   profilePicturePlaceholder: {
     width: 60,
     height: 60,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#fff',
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
   iconText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
   },
   rewardPointsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#ABE5DA',
     padding: 15,
     borderRadius: 15,
     marginBottom: 20,
@@ -235,14 +235,14 @@ const styles = StyleSheet.create({
   rewardIconPlaceholder: {
     width: 40,
     height: 40,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#FFF',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
   },
   rewardPointsText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: '600',
   },
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     flex: 1,
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#CCCCCC',
     marginHorizontal: 5,
     paddingVertical: 15,
     borderRadius: 15,
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
   },
   newsHeader: {
@@ -275,16 +275,16 @@ const styles = StyleSheet.create({
   newsHeaderText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
   },
   blogButton: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#ABE5DA',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
   },
   blogButtonText: {
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
   },
   newsContainer: {
@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   newsCard: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#4DCB9B',
     borderRadius: 15,
     padding: 15,
     marginRight: 15,
@@ -307,13 +307,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   newsTitle: {
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 5,
   },
   newsDescription: {
-    color: '#ddd',
+    color: '#000',
     fontSize: 14,
   },
   bottomNavBar: {
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#BCDC9C',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

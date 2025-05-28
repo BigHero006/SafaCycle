@@ -66,7 +66,7 @@ const ScannedWastes: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#D9D9D9',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   wasteBox: {
     flexDirection: 'row',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#FFF',
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
@@ -91,31 +91,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   wasteName: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
   wasteType: {
-    color: '#ddd',
+    color: '#000',
     fontSize: 14,
     marginTop: 4,
   },
   returnButton: {
-    backgroundColor: '#fff',
+    backgroundColor: '#5B913B',
     paddingVertical: 12,
     borderRadius: 15,
     alignItems: 'center',
     marginTop: 10,
   },
   returnButtonText: {
-    color: '#6a11cb',
+    color: '#000',
     fontSize: 16,
     fontWeight: '600',
   },
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

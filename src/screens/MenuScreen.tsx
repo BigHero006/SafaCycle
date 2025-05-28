@@ -98,12 +98,12 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#A5CECA',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
   box: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#FFF',
     borderRadius: 20,
     padding: 15,
     alignItems: 'center',
@@ -112,30 +112,30 @@ const styles = StyleSheet.create({
   profilePicturePlaceholder: {
     width: 80,
     height: 80,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#5B913B',
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
   },
   iconText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 12,
   },
   userName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#fff',
+    color: '#000',
     marginBottom: 5,
   },
   userEmail: {
     fontSize: 14,
-    color: '#ddd',
+    color: '#000',
     marginBottom: 15,
   },
   button: {
     width: '100%',
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#5B913B',
     paddingVertical: 12,
     borderRadius: 15,
     marginBottom: 12,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
