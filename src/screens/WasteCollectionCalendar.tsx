@@ -154,7 +154,7 @@ const WasteCollectionCalendar: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#fff',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
@@ -167,20 +167,20 @@ const styles = StyleSheet.create({
   monthText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
   },
   headerButtons: {
     flexDirection: 'row',
   },
   navButton: {
     marginLeft: 10,
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 10,
   },
   navButtonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
   },
   calendarGrid: {
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dayText: {
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
   },
   legend: {
@@ -217,13 +217,13 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   legendText: {
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
   },
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#a5ceca',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 24,
   },
 });

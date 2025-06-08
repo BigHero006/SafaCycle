@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#A5CE9B',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

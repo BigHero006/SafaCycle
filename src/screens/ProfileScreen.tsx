@@ -128,7 +128,7 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#CCCCCC',
+    backgroundColor: '#CCCCCc',
     paddingTop: 50,
     paddingHorizontal: 20,
   },
@@ -145,14 +145,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   placeholderText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 14,
   },
   fieldContainer: {
     marginBottom: 15,
   },
   label: {
-    color: '#fff',
+    color: '#000',
     fontSize: 14,
     marginBottom: 4,
   },

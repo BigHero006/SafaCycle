@@ -61,13 +61,13 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#a5ceca',
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 28,
-    color: '#fff',
+    color: '#000',
     marginBottom: 40,
     fontWeight: 'bold',
     alignSelf: 'center',
@@ -82,19 +82,19 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#5b913b',
     paddingVertical: 15,
     borderRadius: 25,
     alignItems: 'center',
     marginBottom: 20,
   },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
   link: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
     textAlign: 'center',
   },

@@ -68,7 +68,7 @@ const Blogs: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4DCB9B',
+    backgroundColor: '#ABE5dA',
     paddingTop: 50,
     paddingHorizontal: 20,
   },

@@ -61,7 +61,7 @@ const ReportProblem: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ABE5DA',
+    backgroundColor: '#ABE5dA',
   },
   scrollContent: {
     padding: 20,

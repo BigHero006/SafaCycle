@@ -28,12 +28,12 @@ const TrackVehicle: React.FC<{ navigation: any }> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#4dcb9b',
   },
   bottomNavBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#6a11cb',
+    backgroundColor: '#a5ceca',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
