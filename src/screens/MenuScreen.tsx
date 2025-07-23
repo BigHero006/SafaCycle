@@ -82,7 +82,7 @@ const MenuScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
           {/* Placeholder for Scan Icon */}
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           {/* Placeholder for Location Icon */}
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#000',
-    fontSize: 12,
+    fontSize: 20,
   },
   userName: {
     fontSize: 18,

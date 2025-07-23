@@ -4,16 +4,16 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions, FlatLis
 const { width } = Dimensions.get('window');
 
 const exampleArticles = [
-  { id: '1', title: 'Waste Management Tips', description: 'Learn how to manage your waste effectively.' },
-  { id: '2', title: 'Recycling Benefits', description: 'Discover the benefits of recycling.' },
-  { id: '3', title: 'Community Clean-up', description: 'Join local clean-up events in your area.' },
-  { id: '4', title: 'Reducing Plastic Use', description: 'Tips to reduce plastic consumption.' },
-  { id: '5', title: 'Composting Basics', description: 'How to start composting at home.' },
-  { id: '6', title: 'Energy Conservation', description: 'Save energy with simple habits.' },
-  { id: '7', title: 'Sustainable Living', description: 'Adopt sustainable lifestyle choices.' },
-  { id: '8', title: 'Water Conservation', description: 'Ways to conserve water daily.' },
-  { id: '9', title: 'Eco-friendly Products', description: 'Choose products that are good for the environment.' },
-  { id: '10', title: 'Climate Change Awareness', description: 'Understand the impact of climate change.' },
+  { id: '1', title: 'Waste Management Tips', description: 'Learn how to manage your waste effectively with these practical tips and strategies for sustainable living.' },
+  { id: '2', title: 'Recycling Benefits', description: 'Discover the environmental and economic benefits of recycling materials in your daily life.' },
+  { id: '3', title: 'Community Clean-up', description: 'Join local clean-up events in your area and make a positive impact on your neighborhood environment.' },
+  { id: '4', title: 'Reducing Plastic Use', description: 'Practical tips and alternatives to reduce plastic consumption and help protect our oceans and wildlife.' },
+  { id: '5', title: 'Composting Basics', description: 'How to start composting at home with simple steps to turn organic waste into nutrient-rich soil.' },
+  { id: '6', title: 'Energy Conservation', description: 'Save energy with simple habits and techniques that reduce your carbon footprint and utility bills.' },
+  { id: '7', title: 'Sustainable Living', description: 'Adopt sustainable lifestyle choices that benefit both the environment and your personal well-being.' },
+  { id: '8', title: 'Water Conservation', description: 'Effective ways to conserve water daily and reduce your environmental impact while saving money.' },
+  { id: '9', title: 'Eco-friendly Products', description: 'Choose products that are good for the environment and discover sustainable alternatives for everyday items.' },
+  { id: '10', title: 'Climate Change Awareness', description: 'Understand the impact of climate change and learn how individual actions can make a difference.' },
 ];
 
 const ITEM_HEIGHT = 150; // Set a fixed height for each item
@@ -26,8 +26,8 @@ const Blogs: React.FC<{ navigation: any }> = ({ navigation }) => {
       <View style={styles.articleImagePlaceholder}>
         <Text style={styles.imageText}>Image</Text>
       </View>
-      <Text style={styles.articleTitle}>{item.title}</Text>
-      <Text style={styles.articleDescription}>{item.description}</Text>
+      <Text style={styles.articleTitle} numberOfLines={1} ellipsizeMode="tail">{item.title}</Text>
+      <Text style={styles.articleDescription} numberOfLines={2} ellipsizeMode="tail">{item.description}</Text>
     </View>
   );
 
@@ -54,7 +54,7 @@ const Blogs: React.FC<{ navigation: any }> = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
@@ -86,12 +86,13 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     height: ITEM_HEIGHT, // Set height for vertical layout
+    justifyContent: 'space-between',
   },
   articleImagePlaceholder: {
-    height: 100,
+    height: 60,
     backgroundColor: '#4e54c9',
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -109,6 +110,9 @@ const styles = StyleSheet.create({
   articleDescription: {
     color: '#000',
     fontSize: 14,
+    flex: 1,
+    textAlign: 'left',
+    lineHeight: 18,
   },
   bottomNavBar: {
     flexDirection: 'row',
@@ -123,7 +127,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 20,
   },
 });
 

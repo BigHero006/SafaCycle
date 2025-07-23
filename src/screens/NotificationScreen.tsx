@@ -60,7 +60,7 @@ const NotificationAndAlert: React.FC<{ navigation: any }> = ({ navigation }) => 
                 {/* Placeholder for Scan Icon */}
                 <Text style={styles.iconText}>📷</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+              <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
                 {/* Placeholder for Location Icon */}
                 <Text style={styles.iconText}>📍</Text>
               </TouchableOpacity>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 20,
   },
 });
 

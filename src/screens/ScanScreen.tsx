@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 20,
   },
   navText: {
     color: '#fff',

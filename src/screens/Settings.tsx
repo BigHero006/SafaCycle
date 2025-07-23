@@ -151,7 +151,7 @@ const Settings: React.FC<{ navigation: any }> = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 20,
   },
 });
 
