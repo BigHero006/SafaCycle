@@ -29,20 +29,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#4dcb9b',
+    justifyContent: 'space-between', // Ensures the bottom nav bar stays at the bottom
   },
   bottomNavBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#a5ceca',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    width: '100%',
   },
   navButton: {
     alignItems: 'center',
   },
   iconText: {
-    fontSize: 24,
+    fontSize: 20,
     color: 'white',
   },
 });

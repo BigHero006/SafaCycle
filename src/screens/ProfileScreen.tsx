@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -11,6 +11,7 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [location, setLocation] = useState('');
   const [countryCode, setCountryCode] = useState('+1');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [profileImageUri, setProfileImageUri] = useState<string | null>(null);
 
   useEffect(() => {
     setName(authName ?? '');
@@ -21,16 +22,69 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
     setAuthName(name);
     Alert.alert(
       'Profile Saved',
-      `Name: ${name}\nEmail: ${email}\nPassword: ${password}\nLocation: ${location}\nPhone: ${countryCode} ${phoneNumber}`
+      `Name: ${name}\nEmail: ${email}\nPassword: ${password}\nLocation: ${location}\nPhone: ${countryCode} ${phoneNumber}\nProfile Image: ${profileImageUri ? 'Updated' : 'No image selected'}`
+    );
+  };
+
+  const onChangeProfilePicture = () => {
+    Alert.alert(
+      'Change Profile Picture',
+      'Choose an option',
+      [
+        {
+          text: 'Camera',
+          onPress: () => {
+            // Simulate camera capture
+            setProfileImageUri('camera_image_uri');
+            Alert.alert('Success', 'Photo taken from camera!');
+          }
+        },
+        {
+          text: 'Gallery',
+          onPress: () => {
+            // Simulate gallery selection
+            setProfileImageUri('gallery_image_uri');
+            Alert.alert('Success', 'Photo selected from gallery!');
+          }
+        },
+        {
+          text: 'Remove Photo',
+          onPress: () => {
+            setProfileImageUri(null);
+            Alert.alert('Success', 'Profile photo removed!');
+          },
+          style: 'destructive'
+        },
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        }
+      ]
     );
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <View style={styles.profileImage}>
-          <Text style={styles.placeholderText}>Profile Image</Text>
-        </View>
+        <TouchableOpacity style={styles.profileImageContainer} onPress={onChangeProfilePicture}>
+          {profileImageUri ? (
+            <View style={styles.profileImage}>
+              <Text style={styles.profileInitials}>
+                {name ? name.charAt(0).toUpperCase() : 'U'}
+              </Text>
+            </View>
+          ) : (
+            <View style={styles.profileImage}>
+              <Text style={styles.profileInitials}>
+                {name ? name.charAt(0).toUpperCase() : 'U'}
+              </Text>
+            </View>
+          )}
+          <View style={styles.editIconContainer}>
+            <Text style={styles.editIcon}>📷</Text>
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.changePhotoText}>Tap to change photo</Text>
       </View>
 
       <View style={styles.fieldContainer}>
@@ -114,7 +168,7 @@ const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
@@ -136,6 +190,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 30,
   },
+  profileImageContainer: {
+    position: 'relative',
+    marginBottom: 10,
+  },
   profileImage: {
     width: 100,
     height: 100,
@@ -143,6 +201,34 @@ const styles = StyleSheet.create({
     backgroundColor: '#5B9138',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 3,
+    borderColor: '#FFF',
+  },
+  profileInitials: {
+    color: '#FFF',
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  editIconContainer: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#FFF',
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#5B9138',
+  },
+  editIcon: {
+    fontSize: 16,
+  },
+  changePhotoText: {
+    color: '#5B9138',
+    fontSize: 14,
+    fontWeight: '500',
   },
   placeholderText: {
     color: '#000',
@@ -218,7 +304,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 20,
   },
 });
 

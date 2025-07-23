@@ -1,14 +1,33 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
+import { useAuth } from '../context/AuthContext';
 
 const backgroundImage = require('../../images/Backgorund.jpg');
 
 const AboutUs: React.FC<{ navigation: any }> = ({ navigation }) => {
+  const { user } = useAuth();
+
+  const handleHomeNavigation = () => {
+    if (user) {
+      navigation.navigate('Home');
+    } else {
+      navigation.navigate('Login');
+    }
+  };
   return (
-    <ImageBackground source={backgroundImage} style={styles.container}>
-      <View style={styles.overlay} />
-      <View style={styles.content}>
-        <View style={styles.box}>
+    <View style={styles.container}>
+      <ImageBackground 
+        source={backgroundImage} 
+        style={styles.backgroundImage}
+        resizeMode="cover"
+      >
+        <View style={styles.overlay} />
+        <ScrollView 
+          style={styles.scrollContainer}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.box}>
           <Image
             source={require('../../images/logo.png')}
             style={styles.logo}
@@ -26,48 +45,58 @@ const AboutUs: React.FC<{ navigation: any }> = ({ navigation }) => {
             </Text>
           </View>
         </View>
+        </ScrollView>
 
         {/* Bottom Navigation Bar */}
         <View style={styles.bottomNavBar}>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+          <TouchableOpacity onPress={handleHomeNavigation} style={styles.navButton}>
             <Text style={styles.iconText}>🏠</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
             <Text style={styles.iconText}>📷</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+          <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
             <Text style={styles.iconText}>📍</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
             <Text style={styles.iconText}>☰</Text>
           </TouchableOpacity>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between', // Ensures the bottom nav bar stays at the bottom
-    paddingHorizontal: 20,
+  },
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.7)', // 30% fill overlay
   },
-  content: {
+  scrollContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+    paddingBottom: 100, // Space for bottom navigation
   },
   box: {
     backgroundColor: '#ffffff', // Background color for the box
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
-    marginTop: 50, // Space from the top
-    marginBottom: 20, // Space from the bottom nav bar
+    marginTop: 20,
+    marginBottom: 20,
   },
   logo: {
     width: 120,
@@ -85,6 +114,10 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   bottomNavBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#A5CE9B',
@@ -98,7 +131,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 20,
   },
 });
 

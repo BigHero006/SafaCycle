@@ -28,16 +28,24 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
         <View style={styles.newsImagePlaceholder}>
           <Text style={styles.iconText}>Image</Text>
         </View>
-        <Text style={styles.newsTitle}>{article.title}</Text>
-        <Text style={styles.newsDescription}>{article.description}</Text>
+        <Text style={styles.newsTitle} numberOfLines={1} ellipsizeMode="tail">
+          {article.title}
+        </Text>
+        <Text style={styles.newsDescription} numberOfLines={2} ellipsizeMode="tail">
+          {article.description}
+        </Text>
       </View>
     ));
   };
 
   return (
     <View style={styles.container}>
-      {/* Box containing texts and icons */}
-      <View style={styles.headerBox}>
+      <ScrollView 
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        {/* Box containing texts and icons */}
+        <View style={styles.headerBox}>
         <View style={styles.textsContainer}>
           <Text style={styles.appName}>Safa Cycle</Text>
           <Text style={styles.welcomeMessage}>Welcome, {name || user}!</Text>
@@ -138,6 +146,7 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
       >
         {renderNewsArticles()}
       </Animated.ScrollView>
+      </ScrollView>
 
       {/* Bottom Navigation Bar */}
       <View style={styles.bottomNavBar}>
@@ -149,7 +158,7 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
           {/* Placeholder for Scan Icon */}
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           {/* Placeholder for Location Icon */}
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
@@ -168,13 +177,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     paddingTop: 50,
     paddingHorizontal: 20,
+    paddingBottom: 100, // Add bottom padding for navigation bar
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 20,
   },
   headerBox: {
     flexDirection: 'row',
     backgroundColor: '#4DCB9B',
     borderRadius: 15,
-    padding: 15,
-    marginBottom: 20,
+    padding: 12,
+    marginBottom: 15,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -182,139 +196,145 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   appName: {
-    fontSize: 30, // decreased by 2 from 32
+    fontSize: 26, // Reduced from 30
     fontWeight: 'bold',
     color: '#000',
-    marginBottom: 5,
+    marginBottom: 3,
   },
   welcomeMessage: {
-    fontSize: 22, // decreased by 2 from 24
+    fontSize: 18, // Reduced from 22
     color: '#000',
     fontWeight: '600',
+    marginBottom: 2,
   },
   subtitle: {
-    fontSize: 14, // decreased by 2 from 16
+    fontSize: 12, // Reduced from 14
     color: '#000',
   },
   iconsContainer: {
     alignItems: 'center',
-    marginLeft: 15,
+    marginLeft: 10,
   },
   notificationButton: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
   notificationIcon: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     backgroundColor: '#fff',
-    borderRadius: 20,
+    borderRadius: 17.5,
     justifyContent: 'center',
     alignItems: 'center',
   },
   profileButton: {},
   profilePicturePlaceholder: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     backgroundColor: '#fff',
-    borderRadius: 30,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
   },
   iconText: {
     color: '#000',
-    fontSize: 18,
+    fontSize: 16, // Reduced from 20
   },
   rewardPointsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#ABE5DA',
-    padding: 15,
+    padding: 12,
     borderRadius: 15,
-    marginBottom: 20,
+    marginBottom: 15,
   },
   rewardIconPlaceholder: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     backgroundColor: '#FFF',
-    borderRadius: 20,
+    borderRadius: 17.5,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: 12,
   },
   rewardPointsText: {
     color: '#000',
-    fontSize: 18,
+    fontSize: 16, // Reduced from 18
     fontWeight: '600',
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 15,
   },
   actionButton: {
     flex: 1,
     backgroundColor: '#CCCCCC',
-    marginHorizontal: 5,
-    paddingVertical: 15,
+    marginHorizontal: 3,
+    paddingVertical: 12,
     borderRadius: 15,
     alignItems: 'center',
   },
   buttonIconPlaceholder: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   buttonText: {
     color: '#000',
     fontWeight: '600',
+    fontSize: 12, // Added smaller font size
+    textAlign: 'center',
   },
   newsHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   newsHeaderText: {
-    fontSize: 20,
+    fontSize: 18, // Reduced from 20
     fontWeight: 'bold',
     color: '#000',
   },
   blogButton: {
     backgroundColor: '#ABE5DA',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
   },
   blogButtonText: {
     color: '#000',
     fontWeight: '600',
+    fontSize: 12, // Added smaller font size
   },
   newsContainer: {
     flexGrow: 0,
-    marginBottom: 20,
+    marginBottom: 15,
+    maxHeight: 180, // Limit height to prevent overlap
   },
   newsCard: {
     backgroundColor: '#4DCB9B',
     borderRadius: 15,
-    padding: 15,
-    marginRight: 15,
-    width: width - 80,
+    padding: 12,
+    marginRight: 12,
+    width: width - 100,
+    height: 160, // Fixed height to prevent overlap
   },
   newsImagePlaceholder: {
-    height: 120,
+    height: 80, // Reduced from 120
     backgroundColor: '#4e54c8',
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
   newsTitle: {
     color: '#000',
     fontWeight: 'bold',
-    fontSize: 16,
-    marginBottom: 5,
+    fontSize: 14, // Reduced from 16
+    marginBottom: 4,
   },
   newsDescription: {
     color: '#000',
-    fontSize: 14,
+    fontSize: 12, // Reduced from 14
   },
   bottomNavBar: {
     position: 'absolute',

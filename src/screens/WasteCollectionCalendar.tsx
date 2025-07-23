@@ -36,7 +36,7 @@ const dummySchedules: Record<string, PickupSchedule[]> = {
 type RootStackParamList = {
   Home: undefined;
   ScanScreen: undefined;
-  LocationScreen: undefined;
+  TrackVehicle: undefined;
   MenuScreen: undefined;
   WasteCollectionCalendar: undefined;
 };
@@ -140,7 +140,7 @@ const WasteCollectionCalendar: React.FC = () => {
         <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')} style={styles.navButton}>
           <Text style={styles.iconText}>📷</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LocationScreen')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackVehicle')} style={styles.navButton}>
           <Text style={styles.iconText}>📍</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')} style={styles.navButton}>
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#000',
-    fontSize: 24,
+    fontSize: 20,
   },
 });
 
