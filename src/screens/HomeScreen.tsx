@@ -141,7 +141,7 @@ const Home: React.FC<{ navigation: any }> = ({ navigation }) => {
 
       {/* Bottom Navigation Bar */}
       <View style={styles.bottomNavBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.navButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.navButton}>
           {/* Placeholder for Home Icon */}
           <Text style={styles.iconText}>🏠</Text>
         </TouchableOpacity>

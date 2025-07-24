@@ -18,6 +18,8 @@ import NotificationAndAlert from '../../src/screens/NotificationScreen';
 import TrackVehicle from '../../src/screens/TrackVehicle';
 import ReportProblem from '../../src/screens/ReportProblemScreen';
 import Blogs from '../../src/screens/BlogScreen';
+import AdminDashboard from '../../src/screens/AdminDashboard';
+import DriverDashboard from '../../src/screens/DriverDashboard';
 import appConfig from '../../app.json';
 import { AuthProvider } from '../../src/context/AuthContext';
 
@@ -32,6 +34,8 @@ const App = () => {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="AdminDashboard" component={AdminDashboard} />
+          <Stack.Screen name="DriverDashboard" component={DriverDashboard} />
           <Stack.Screen name="MenuScreen" component={MenuScreen} />
           <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
           <Stack.Screen name="Settings" component={Settings} />

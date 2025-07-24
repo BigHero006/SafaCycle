@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert, Modal } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
@@ -7,12 +7,17 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [countryCode, setCountryCode] = useState('+1');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [selectedRole, setSelectedRole] = useState<'user' | 'driver'>('user');
+  const [showRoleDropdown, setShowRoleDropdown] = useState(false);
   const { signup } = useAuth();
 
+  const roleOptions = [
+    { value: 'user', label: 'User' },
+    { value: 'driver', label: 'Driver' }
+  ];
+
   const handleSignup = async () => {
-    if (!name || !email || !password || !confirmPassword || !phoneNumber) {
+    if (!name || !email || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill all fields');
       return;
     }
@@ -24,15 +29,11 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       Alert.alert('Error', 'Password must be at least 6 characters long');
       return;
     }
-    if (phoneNumber.length < 10) {
-      Alert.alert('Error', 'Please enter a valid phone number');
-      return;
-    }
-    const success = await signup(name, email, password);
+    const success = await signup(name, email, password, selectedRole);
     if (success) {
       Alert.alert(
         'Success', 
-        'Account created successfully! Please login with your credentials.',
+        `${selectedRole === 'driver' ? 'Driver' : 'User'} account created successfully! Please login with your credentials.`,
         [
           {
             text: 'OK',
@@ -81,34 +82,71 @@ const SignupScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
         placeholderTextColor="#aaa"
       />
       
-      <View style={styles.phoneContainer}>
-        <Text style={styles.phoneLabel}>Phone Number</Text>
-        <View style={styles.phoneInputRow}>
-          <TextInput
-            style={styles.countryCodeInput}
-            value={countryCode}
-            onChangeText={setCountryCode}
-            keyboardType="phone-pad"
-            maxLength={5}
-            placeholder="+1"
-            placeholderTextColor="#aaa"
-          />
-          <TextInput
-            style={styles.phoneNumberInput}
-            value={phoneNumber}
-            onChangeText={setPhoneNumber}
-            keyboardType="phone-pad"
-            placeholder="Enter phone number"
-            placeholderTextColor="#aaa"
-          />
-        </View>
-      </View>
+      {/* Role Selection Dropdown */}
+      <TouchableOpacity 
+        style={styles.dropdown}
+        onPress={() => setShowRoleDropdown(true)}
+      >
+        <Text style={styles.dropdownText}>
+          Account Type: {roleOptions.find(r => r.value === selectedRole)?.label}
+        </Text>
+        <Text style={styles.dropdownArrow}>▼</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.link}>Already have an account? Login</Text>
       </TouchableOpacity>
+
+      {/* Role Selection Modal */}
+      <Modal
+        visible={showRoleDropdown}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowRoleDropdown(false)}
+      >
+        <TouchableOpacity 
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setShowRoleDropdown(false)}
+        >
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Select Account Type</Text>
+            {roleOptions.map((role) => (
+              <TouchableOpacity
+                key={role.value}
+                style={[
+                  styles.roleOption,
+                  selectedRole === role.value && styles.selectedRoleOption
+                ]}
+                onPress={() => {
+                  setSelectedRole(role.value as 'user' | 'driver');
+                  setShowRoleDropdown(false);
+                }}
+              >
+                <Text style={[
+                  styles.roleOptionText,
+                  selectedRole === role.value && styles.selectedRoleOptionText
+                ]}>
+                  {role.label}
+                </Text>
+                {role.value === 'user' && (
+                  <Text style={styles.roleDescription}>
+                    For waste disposal and collection tracking
+                  </Text>
+                )}
+                {role.value === 'driver' && (
+                  <Text style={styles.roleDescription}>
+                    For waste collection drivers
+                  </Text>
+                )}
+              </TouchableOpacity>
+            ))}
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -136,6 +174,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
   },
+  dropdown: {
+    height: 50,
+    backgroundColor: '#fff',
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    marginBottom: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  dropdownText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  dropdownArrow: {
+    fontSize: 12,
+    color: '#666',
+  },
   button: {
     backgroundColor: '#5b913b',
     paddingVertical: 15,
@@ -153,39 +209,48 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  phoneContainer: {
-    marginBottom: 15,
-  },
-  phoneLabel: {
-    color: '#000',
-    fontSize: 16,
-    marginBottom: 8,
-    fontWeight: '600',
-    paddingLeft: 5,
-  },
-  phoneInputRow: {
-    flexDirection: 'row',
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  countryCodeInput: {
-    height: 50,
-    width: 80,
+  modalContent: {
     backgroundColor: '#fff',
-    borderRadius: 25,
-    paddingHorizontal: 15,
-    marginRight: 10,
-    fontSize: 16,
+    borderRadius: 20,
+    padding: 20,
+    width: '80%',
+    maxWidth: 300,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
+    marginBottom: 20,
   },
-  phoneNumberInput: {
-    flex: 1,
-    height: 50,
-    backgroundColor: '#fff',
-    borderRadius: 25,
-    paddingHorizontal: 20,
+  roleOption: {
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 10,
+    backgroundColor: '#f5f5f5',
+  },
+  selectedRoleOption: {
+    backgroundColor: '#5b913b',
+  },
+  roleOptionText: {
     fontSize: 16,
+    fontWeight: 'bold',
     color: '#333',
+    marginBottom: 5,
+  },
+  selectedRoleOptionText: {
+    color: '#fff',
+  },
+  roleDescription: {
+    fontSize: 12,
+    color: '#666',
+    lineHeight: 16,
   },
 });
 

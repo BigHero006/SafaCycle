@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     paddingBottom: 100, // Space for bottom navigation
   },
   box: {
-    backgroundColor: '#ffffff', // Background color for the box
+    backgroundColor: '#A5CECA', // Background color for the box
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     right: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: '#A5CE9B',
+    backgroundColor: '#A5CECA',
     paddingVertical: 15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

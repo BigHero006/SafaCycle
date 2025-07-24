@@ -12,9 +12,23 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
       Alert.alert('Error', 'Please enter email and password');
       return;
     }
-    const success = await login(email, password);
-    if (success) {
-      navigation.navigate('Home');
+    
+    const result = await login(email, password);
+    if (result.success && result.role) {
+      // Navigate based on user role returned from login
+      switch (result.role) {
+        case 'admin':
+          navigation.navigate('AdminDashboard');
+          break;
+        case 'driver':
+          navigation.navigate('DriverDashboard');
+          break;
+        case 'user':
+          navigation.navigate('Home');
+          break;
+        default:
+          navigation.navigate('Home');
+      }
     } else {
       Alert.alert('Error', 'Invalid email or password');
     }
