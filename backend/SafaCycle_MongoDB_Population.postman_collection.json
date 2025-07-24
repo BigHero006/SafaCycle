@@ -1,0 +1,472 @@
+{
+  "info": {
+    "name": "SafaCycle MongoDB Population Tests",
+    "description": "Test cases to populate MongoDB database with users, admin actions, and driver data",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register User 1 - John Doe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"john_doe_2025\",\n  \"email\": \"john.doe@safacycle.com\",\n  \"password\": \"SafaCycle@123\",\n  \"password_confirm\": \"SafaCycle@123\",\n  \"phone_number\": \"+919876543210\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Register User 2 - Eco Warrior",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"eco_warrior\",\n  \"email\": \"eco.warrior@safacycle.com\",\n  \"password\": \"SafaCycle@123\",\n  \"password_confirm\": \"SafaCycle@123\",\n  \"phone_number\": \"+919876543211\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Register User 3 - Community Leader",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"community_leader\",\n  \"email\": \"leader@safacycle.com\",\n  \"password\": \"SafaCycle@123\",\n  \"password_confirm\": \"SafaCycle@123\",\n  \"phone_number\": \"+919876543212\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Register Admin User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin_user\",\n  \"email\": \"admin@safacycle.com\",\n  \"password\": \"SafaCycle@Admin123\",\n  \"password_confirm\": \"SafaCycle@Admin123\",\n  \"phone_number\": \"+919876543299\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Login John Doe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"john_doe_2025\",\n  \"password\": \"SafaCycle@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          }
+        },
+        {
+          "name": "Login Admin User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin_user\",\n  \"password\": \"SafaCycle@Admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. MongoDB Population",
+      "item": [
+        {
+          "name": "Check MongoDB Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/mongodb-status/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "mongodb-status", ""]
+            }
+          }
+        },
+        {
+          "name": "Save User 1 to MongoDB",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/users/save-to-mongodb/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "users", "save-to-mongodb", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User from MongoDB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/users/get-from-mongodb/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "users", "get-from-mongodb", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Admin Actions",
+      "item": [
+        {
+          "name": "Admin Action - User Verification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action_type\": \"user_verification\",\n  \"description\": \"Verified eco_warrior user profile and waste scan submissions\",\n  \"target_user_id\": \"2\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/admin/save-action/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "admin", "save-action", ""]
+            }
+          }
+        },
+        {
+          "name": "Admin Action - System Maintenance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action_type\": \"system_maintenance\",\n  \"description\": \"Updated waste category points system\",\n  \"target_user_id\": null\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/admin/save-action/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "admin", "save-action", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Admin Actions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/admin/get-actions/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "admin", "get-actions", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Driver Data",
+      "item": [
+        {
+          "name": "Add Driver 1 - Bandra Route",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"driver_id\": \"DRV001\",\n  \"username\": \"rajesh_driver\",\n  \"full_name\": \"Rajesh Kumar\",\n  \"employee_id\": \"EMP2025001\",\n  \"vehicle_number\": \"MH-01-AB-1234\",\n  \"vehicle_type\": \"garbage_truck\",\n  \"vehicle_capacity_kg\": 5000,\n  \"status\": \"active\",\n  \"latitude\": 19.0596,\n  \"longitude\": 72.8295,\n  \"area\": \"Bandra West\",\n  \"city\": \"Mumbai\",\n  \"route_assigned\": \"Route_BW_001\",\n  \"shift_timing\": \"06:00-14:00\",\n  \"contact_number\": \"+919876543220\",\n  \"emergency_contact\": \"+919876543221\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/drivers/save-data/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "drivers", "save-data", ""]
+            }
+          }
+        },
+        {
+          "name": "Add Driver 2 - Andheri Route",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"driver_id\": \"DRV002\",\n  \"username\": \"suresh_driver\",\n  \"full_name\": \"Suresh Patil\",\n  \"employee_id\": \"EMP2025002\",\n  \"vehicle_number\": \"MH-01-CD-5678\",\n  \"vehicle_type\": \"recyclable_truck\",\n  \"vehicle_capacity_kg\": 3000,\n  \"status\": \"active\",\n  \"latitude\": 19.1136,\n  \"longitude\": 72.8697,\n  \"area\": \"Andheri East\",\n  \"city\": \"Mumbai\",\n  \"route_assigned\": \"Route_AE_002\",\n  \"shift_timing\": \"14:00-22:00\",\n  \"contact_number\": \"+919876543222\",\n  \"emergency_contact\": \"+919876543223\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/drivers/save-data/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "drivers", "save-data", ""]
+            }
+          }
+        },
+        {
+          "name": "Get All Drivers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{admin_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/drivers/get-data/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "drivers", "get-data", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Waste Scans",
+      "item": [
+        {
+          "name": "Get Waste Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "categories", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Waste Scan 1 - Plastic",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": 1,\n  \"item\": 1,\n  \"quantity\": 5,\n  \"estimated_weight_grams\": 125,\n  \"description\": \"Found plastic bottles near Marine Drive beach\",\n  \"location\": \"Marine Drive, Mumbai\",\n  \"ml_prediction\": \"plastic_bottle\",\n  \"ml_confidence\": 0.95\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/scans/create/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "scans", "create", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Waste Scan 2 - Paper",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": 2,\n  \"item\": 4,\n  \"quantity\": 10,\n  \"estimated_weight_grams\": 500,\n  \"description\": \"Collected newspapers from office building\",\n  \"location\": \"BKC, Mumbai\",\n  \"ml_prediction\": \"paper\",\n  \"ml_confidence\": 0.88\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/scans/create/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "scans", "create", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Verification",
+      "item": [
+        {
+          "name": "Final MongoDB Status Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/mongodb-status/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "mongodb-status", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/analytics/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "analytics", ""]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "your_auth_token_here",
+      "type": "string"
+    },
+    {
+      "key": "admin_token",
+      "value": "your_admin_token_here",
+      "type": "string"
+    }
+  ]
+}

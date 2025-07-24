@@ -1,0 +1,454 @@
+{
+  "info": {
+    "name": "SafaCycle Backend API",
+    "description": "Complete API test collection for SafaCycle waste management backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "your_token_here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser2025\",\n  \"email\": \"testuser@safacycle.com\",\n  \"password\": \"SafaCycle@123\",\n  \"password_confirm\": \"SafaCycle@123\",\n  \"phone_number\": \"+919876543210\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"testuser2025\",\n  \"password\": \"SafaCycle@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "profile", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"+919876543211\",\n  \"profile\": {\n    \"bio\": \"Environmental enthusiast\",\n    \"location\": \"Mumbai, India\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "profile", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Waste Management",
+      "item": [
+        {
+          "name": "Get Waste Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "categories", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Waste Items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/items/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "items", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Waste Items by Category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/items/?category=1",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "items", ""],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Waste Scan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": 1,\n  \"item\": 1,\n  \"quantity\": 3,\n  \"estimated_weight_grams\": 75,\n  \"description\": \"Found near park entrance\",\n  \"location\": \"Bandra West, Mumbai\",\n  \"ml_prediction\": \"plastic_bottle\",\n  \"ml_confidence\": 0.95\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/scans/create/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "scans", "create", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Scans",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/scans/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "scans", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/stats/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "stats", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Dashboard Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/dashboard/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "dashboard", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Collection Schedule",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/collection-schedule/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "collection-schedule", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "MongoDB Integration",
+      "item": [
+        {
+          "name": "MongoDB Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/mongodb-status/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "mongodb-status", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/waste/analytics/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "analytics", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Get User Notifications",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/notifications/",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mark Notification as Read",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/notifications/1/read/",
+              "host": ["{{base_url}}"],
+              "path": ["notifications", "1", "read", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Testing",
+      "item": [
+        {
+          "name": "Unauthorized Access",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/waste/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "categories", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"invaliduser\",\n  \"password\": \"wrongpassword\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Waste Scan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Token {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": 999,\n  \"quantity\": -5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/waste/scans/create/",
+              "host": ["{{base_url}}"],
+              "path": ["waste", "scans", "create", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global pre-request script",
+          "console.log('Request URL: ' + pm.request.url);",
+          "console.log('Request Method: ' + pm.request.method);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global test script",
+          "pm.test('Response time is less than 5000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+          "});",
+          "",
+          "pm.test('Response has valid JSON', function () {",
+          "    pm.response.to.be.json;",
+          "});"
+        ]
+      }
+    }
+  ]
+}
