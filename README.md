@@ -94,6 +94,7 @@ src/
 │           └── ThemedText-test.tsx.snap
 
 
+
 🚦 Getting Started
 
 Prerequisites
