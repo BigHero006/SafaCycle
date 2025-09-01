@@ -40,6 +40,7 @@ This app delivers a smart waste management solution with three main user roles:
 
 ## 📁 Project Structure
 
+```
 src/
 ├── screens/          # Main app screens
 │   ├── WelcomeScreen.tsx
@@ -52,7 +53,7 @@ src/
 │   ├── AdminNavBar.tsx
 │   ├── ThemedText.tsx
 │   └── ...
-
+```
 
 ## 🚦 Getting Started
 
