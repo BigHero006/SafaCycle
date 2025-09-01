@@ -1,10 +1,9 @@
 
-SafaCycle
+# SafaCycle
 
-A role-based mobile application built with React Native and Expo for efficient waste collection and management as part of the SafaCycle project.
+A role-based Smart Waste Management mobile application built with React Native and Expo for efficient waste collection and management as part of the SafaCycle project.
 
-
-🎯 Project Overview
+## 🎯 Project Overview
 This app delivers a smart waste management solution with three main user roles:
 
 - **Admin:** Manage users, drivers, routes, and view analytics
@@ -12,8 +11,9 @@ This app delivers a smart waste management solution with three main user roles:
 - **Customer:** Schedule waste pickups, track drivers, and manage requests
 
 
-🚀 Features
-Current Implementation (Phase 1)
+## 🚀 Features
+
+### Current Implementation (Phase 1)
 ✅ Welcome screen with app introduction
 ✅ Navigation setup using React Navigation
 ✅ Placeholder login and signup screens
@@ -21,89 +21,48 @@ Current Implementation (Phase 1)
 ✅ Custom theme system with environmental colors
 ✅ Reusable UI components
 
-Planned Features (Upcoming Phases)
-- 🔄 Complete authentication system with role selection
-- 🔄 Role-based dashboards and navigation
-- 🔄 Driver tracking and route management
-- 🔄 Camera integration for waste scanning
-- 🔄 Push notifications and reminders
-- 🔄 Backend integration with MongoDB
-- 🔄 ML model integration for smart features
-
+### Planned Features (Upcoming Phases)
+🔄 Complete authentication system with role selection
+🔄 Role-based dashboards and navigation
+🔄 Driver tracking and route management
+🔄 Camera integration for waste scanning
+🔄 Push notifications and reminders
+🔄 Backend integration with MongoDB
+🔄 ML model integration for smart features
 
 ## 🛠️ Tech Stack
-- **Framework:** React Native with Expo
-- **Navigation:** React Navigation v6
-- **State Management:** Context API (planned)
-- **Styling:** StyleSheet with custom theme
-- **Backend:** MongoDB (future integration)
-- **ML:** Custom trained model (future integration)
+**Framework:** React Native with Expo
+**Navigation:** React Navigation v6
+**State Management:** Context API (planned)
+**Styling:** StyleSheet with custom theme
+**Backend:** MongoDB (future integration)
+**ML:** Custom trained model (future integration)
 
+## 📁 Project Structure
 
-📁 Project Structure
 src/
-├── screens/                  # App screens
-│   ├── AboutUs.tsx
-│   ├── AdminDashboard.tsx
-│   ├── AdminLogin.tsx
-│   ├── AdminProfile.tsx
-│   ├── AssignedLocations.tsx
-│   ├── BlogScreen.tsx
-│   ├── DriverDashboard.tsx
-│   ├── DriverManagement.tsx
-│   ├── DriverNews.tsx
-│   ├── DriverSignup.tsx
-│   ├── ExchangePoints.tsx
-│   ├── HomeScreen.tsx
-│   ├── Leaderboard.tsx
-│   ├── LocationScreen.tsx
+├── screens/          # Main app screens
+│   ├── WelcomeScreen.tsx
 │   ├── LoginScreen.tsx
-│   ├── MenuScreen.tsx
-│   ├── NotificationScreen.tsx
-│   ├── ProfileScreen.tsx
-│   ├── RecyclingGuide.tsx
-│   ├── ReportProblemScreen.tsx
-│   ├── ScannedWastes.tsx
-│   ├── ScanScreen.tsx
-│   ├── Settings.tsx
-│   ├── SignupScreen.tsx
-│   ├── TrackVehicle.tsx
-│   ├── UserAnalytics.tsx
-│   ├── UserQueries.tsx
-│   ├── WasteCollectionCalendar.tsx
-│   ├── WasteReports.tsx
-│   └── WelcomeScreen.tsx
-│
-├── components/              
+│   ├── AdminDashboard.tsx
+│   ├── DriverDashboard.tsx
+│   └── ...
+├── components/       # Reusable UI components
+│   ├── CustomButton.tsx
 │   ├── AdminNavBar.tsx
-│   ├── Collapsible.tsx
-│   ├── ExternalLink.tsx
-│   ├── HapticTab.tsx
-│   ├── HelloWave.tsx
-│   ├── ParallaxScrollView.tsx
 │   ├── ThemedText.tsx
-│   ├── ThemedView.tsx
-│   ├── ui/
-│   │   ├── IconSymbol.tsx
-│   │   ├── IconSymbol.ios.tsx
-│   │   ├── TabBarBackground.tsx
-│   │   └── TabBarBackground.ios.tsx
-│   └── __tests__/
-│       ├── ThemedText-test.tsx
-│       └── __snapshots__/
-│           └── ThemedText-test.tsx.snap
+│   └── ...
 
 
+## 🚦 Getting Started
 
-🚦 Getting Started
-
-Prerequisites
+### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
 - Expo CLI
 - Android Studio (for Android) or Xcode (for iOS)
 
-Installation
+### Installation
 1. Clone the repository:
     git clone <repository-url>
     cd SafaCycle-frontend
@@ -131,22 +90,21 @@ Installation
     # For web
     npm run web
 
-📱 Available Scripts
+## 📱 Available Scripts
 npm start - Start the Expo development server
 npm run android - Run on Android device/emulator
 npm run ios - Run on iOS device/simulator (macOS only)
 npm run web- Run in web browser
 
 
-🎨 Design System
+## 🎨 Design System
 - **Primary Color:** Sea Green (#2E8B57) for an environmental theme
 - **Typography:** System fonts with consistent sizing
 - **Spacing:** Standardized padding and margins
 - **Components:** Reusable UI elements with consistent styling
 
----
 
-🔮 Roadmap
+## 🔮 Roadmap
 - **Phase 1: Frontend Foundation** ✅
    - Project setup and navigation
    - Welcome screen implementation
@@ -173,14 +131,15 @@ npm run web- Run in web browser
    - Predictive analytics
 
 
-🤝 Contributing
+## 🤝 Contributing
 - Use functional components with hooks
 - Follow the established folder structure
 - Maintain consistent styling with the theme system
 - Write clean, readable code with proper comments
 
-📄 License
-This project is developed as a final year capstone project for educational purposes.
+## 📄 License
+This project is developed as a capstone project for educational purposes.
 
-📞 Contact
-For questions or suggestions, please reach out to the development team via mail "aayushmanshrestha275@gmail.com".
+
+## 📞 Contact
+For questions or suggestions, please reach out to the development team via mail "aayushmanshrestha275@gmail.com"
