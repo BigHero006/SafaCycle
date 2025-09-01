@@ -1,50 +1,185 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+SafaCycle
 
-## Get started
+A role-based mobile application built with React Native and Expo for efficient waste collection and management as part of the SafaCycle project.
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+🎯 Project Overview
+This app delivers a smart waste management solution with three main user roles:
 
-2. Start the app
+- **Admin:** Manage users, drivers, routes, and view analytics
+- **Driver:** Handle daily collection tasks, track assigned routes, and report issues
+- **Customer:** Schedule waste pickups, track drivers, and manage requests
 
-   ```bash
+
+🚀 Features
+Current Implementation (Phase 1)
+✅ Welcome screen with app introduction
+✅ Navigation setup using React Navigation
+✅ Placeholder login and signup screens
+✅ Modular project structure and reusable components
+✅ Custom theme system with environmental colors
+✅ Reusable UI components
+
+Planned Features (Upcoming Phases)
+- 🔄 Complete authentication system with role selection
+- 🔄 Role-based dashboards and navigation
+- 🔄 Driver tracking and route management
+- 🔄 Camera integration for waste scanning
+- 🔄 Push notifications and reminders
+- 🔄 Backend integration with MongoDB
+- 🔄 ML model integration for smart features
+
+
+## 🛠️ Tech Stack
+- **Framework:** React Native with Expo
+- **Navigation:** React Navigation v6
+- **State Management:** Context API (planned)
+- **Styling:** StyleSheet with custom theme
+- **Backend:** MongoDB (future integration)
+- **ML:** Custom trained model (future integration)
+
+
+📁 Project Structure
+src/
+├── screens/                  # App screens
+│   ├── AboutUs.tsx
+│   ├── AdminDashboard.tsx
+│   ├── AdminLogin.tsx
+│   ├── AdminProfile.tsx
+│   ├── AssignedLocations.tsx
+│   ├── BlogScreen.tsx
+│   ├── DriverDashboard.tsx
+│   ├── DriverManagement.tsx
+│   ├── DriverNews.tsx
+│   ├── DriverSignup.tsx
+│   ├── ExchangePoints.tsx
+│   ├── HomeScreen.tsx
+│   ├── Leaderboard.tsx
+│   ├── LocationScreen.tsx
+│   ├── LoginScreen.tsx
+│   ├── MenuScreen.tsx
+│   ├── NotificationScreen.tsx
+│   ├── ProfileScreen.tsx
+│   ├── RecyclingGuide.tsx
+│   ├── ReportProblemScreen.tsx
+│   ├── ScannedWastes.tsx
+│   ├── ScanScreen.tsx
+│   ├── Settings.tsx
+│   ├── SignupScreen.tsx
+│   ├── TrackVehicle.tsx
+│   ├── UserAnalytics.tsx
+│   ├── UserQueries.tsx
+│   ├── WasteCollectionCalendar.tsx
+│   ├── WasteReports.tsx
+│   └── WelcomeScreen.tsx
+│
+├── components/              
+│   ├── AdminNavBar.tsx
+│   ├── Collapsible.tsx
+│   ├── ExternalLink.tsx
+│   ├── HapticTab.tsx
+│   ├── HelloWave.tsx
+│   ├── ParallaxScrollView.tsx
+│   ├── ThemedText.tsx
+│   ├── ThemedView.tsx
+│   ├── ui/
+│   │   ├── IconSymbol.tsx
+│   │   ├── IconSymbol.ios.tsx
+│   │   ├── TabBarBackground.tsx
+│   │   └── TabBarBackground.ios.tsx
+│   └── __tests__/
+│       ├── ThemedText-test.tsx
+│       └── __snapshots__/
+│           └── ThemedText-test.tsx.snap
+
+
+🚦 Getting Started
+
+Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Expo CLI
+- Android Studio (for Android) or Xcode (for iOS)
+
+Installation
+1. Clone the repository:
+    git clone <repository-url>
+    cd SafaCycle-frontend
+
+2. Install dependencies:
+
+    npm install
+    # or
+    yarn install
+
+3. Start the development server:
+
+    npm start
+    # or
     npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+4. Run on device/simulator:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+    # For Android
+    npm run android
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+    # For iOS (macOS only)
+    npm run ios
 
-## Get a fresh project
+    # For web
+    npm run web
 
-When you're ready, run:
+📱 Available Scripts
+npm start - Start the Expo development server
+npm run android - Run on Android device/emulator
+npm run ios - Run on iOS device/simulator (macOS only)
+npm run web- Run in web browser
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+🎨 Design System
+- **Primary Color:** Sea Green (#2E8B57) for an environmental theme
+- **Typography:** System fonts with consistent sizing
+- **Spacing:** Standardized padding and margins
+- **Components:** Reusable UI elements with consistent styling
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+🔮 Roadmap
+- **Phase 1: Frontend Foundation** ✅
+   - Project setup and navigation
+   - Welcome screen implementation
+   - Basic component structure
+- **Phase 2: Authentication & Onboarding** 🔄
+   - Complete login/signup forms
+   - Role selection system
+   - User onboarding flow
+- **Phase 3: Core Features** 🔄
+   - Role-based dashboards
+   - Driver tracking interface
+   - Customer management screens
+- **Phase 4: Advanced Features** 🔄
+   - Camera integration
+   - Push notifications
+   - Offline support
+- **Phase 5: Backend Integration** 🔄
+   - MongoDB integration
+   - API development
+   - Real-time features
+- **Phase 6: Smart Features** 🔄
+   - ML model integration
+   - Automated waste classification
+   - Predictive analytics
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+🤝 Contributing
+- Use functional components with hooks
+- Follow the established folder structure
+- Maintain consistent styling with the theme system
+- Write clean, readable code with proper comments
 
-Join our community of developers creating universal apps.
+📄 License
+This project is developed as a final year capstone project for educational purposes.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+📞 Contact
+For questions or suggestions, please reach out to the development team via mail "aayushmanshrestha275@gmail.com".
