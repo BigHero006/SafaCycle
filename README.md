@@ -1,5 +1,5 @@
 
-# SafaCycle
+# SafaCycle - Frontend
 
 A role-based Smart Waste Management mobile application built with React Native and Expo for efficient waste collection and management as part of the SafaCycle project.
 
